@@ -29,6 +29,15 @@
   /* Espaçamentos */
   --espacamento-linha: 1.5;
   --espacamento-letra: normal;
+
+  --tamanho-borda: 0.6mm;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
 }
 
 body {
@@ -42,11 +51,18 @@ body {
   line-height: var(--espacamento-linha);
 }
 
+header {
+  display: flex;
+  align-content: center;
+  flex-direction: row;
+  height: 10%;
+}
+
 main {
   display: flex;
   padding-bottom: 2rem;
   overflow-y: visible;
-  height: 90%;
+  height: 80%;
   min-height: 90%;
 }
 
@@ -76,11 +92,11 @@ footer {
   border: none;
   border-radius: 50%;
   cursor: pointer;
-  transition: transform 0.3s ease-out;
+  transition: transform 0.3s ease-in-out;
 }
 
 .botao-topo:hover {
-  border: 0.6mm solid var(--cor-link);
+  border: var(--tamanho-borda) solid var(--cor-link);
 }
 
 h1,

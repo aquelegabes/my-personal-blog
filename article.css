@@ -33,11 +33,11 @@
 }
 
 .botao-capitulo:hover {
-  border: 0.6mm solid var(--cor-link);
+  border: var(--tamanho-borda) solid var(--cor-link);
 }
 
 .current {
-  border: 0.6mm solid var(--cor-link-opacidade-40);
+  border: var(--tamanho-borda) solid var(--cor-link-opacidade-40);
 }
 
 .navegacao-capitulos {
