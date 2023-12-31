@@ -58,8 +58,8 @@ body {
 
 header {
   display: flex;
-  align-content: center;
   flex-direction: row;
+  justify-items: center;
   height: 10%;
 }
 
