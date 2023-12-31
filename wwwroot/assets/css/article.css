@@ -1,0 +1,57 @@
+:root {
+    --tamanho-botao-capitulo: 9mm;
+}
+
+/* Estilos para o Conteúdo do Artigo */
+.artigo {
+  margin: 0 auto;
+  line-height: var(--espacamento-linha);
+  text-align: justify;
+  align-items: center;
+  padding: 0 2rem;
+}
+
+.botao-capitulo {
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+
+  background-color: var(--cor-botao-texto);
+  color: var(--cor-destaque);
+  font-size: var(--tamanho-fonte-corpo);
+  
+  align-items: center;
+  display: inline-flex;
+  text-align: center;
+  justify-content: center;
+  
+  height: var(--tamanho-botao-capitulo);
+  width: var(--tamanho-botao-capitulo);
+  line-height: var(--tamanho-botao-capitulo);
+  transition: border 0.3s ease-out;
+  transition: transform 0.3s ease-out;
+}
+
+.botao-capitulo:hover {
+  border: var(--tamanho-borda) solid var(--cor-link);
+}
+
+.current {
+  border: var(--tamanho-borda) solid var(--cor-link-opacidade-40);
+}
+
+.navegacao-capitulos {
+  text-align: center;
+  align-self: center;
+  justify-self: center;
+  flex: 1;
+}
+
+.rodape-artigo:hover {
+  opacity: 1;
+}
+
+.rodape-artigo:not(:hover) {
+  transition-delay: 3s;
+  opacity: 0;
+}

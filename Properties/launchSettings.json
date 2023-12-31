@@ -1,6 +1,6 @@
 {
   "profiles": {
-    "my-personal-blog": {
+    "MyPersonalBlog": {
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {
