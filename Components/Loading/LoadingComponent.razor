@@ -1,0 +1,9 @@
+@if (IsLoading)
+{
+    <nav class="loading"></nav>
+}
+
+@code {
+    [Parameter]
+    public bool IsLoading { get; set; } = false;
+}

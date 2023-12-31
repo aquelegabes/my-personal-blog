@@ -1,3 +1,5 @@
+@using MyPersonalBlog.Components.Loading;
+
 <nav class="navegacao-topo">
     <button class="botao-topo">
         <?xml version="1.0" encoding="iso-8859-1"?>
@@ -17,11 +19,9 @@
     </button>
 </nav>
 
-@if (IsLoading)
-{
-    <nav class="loading"></nav>
-}
+@ChildContent
 
 @code {
-    public bool IsLoading => false;
+    [Parameter]
+    public RenderFragment? ChildContent {get;set;}
 }

@@ -35,6 +35,10 @@ li {
   all: unset;
 }
 
+.active {
+  color: var(--cor-destaque) !important;
+}
+
 .barra-abas {
   flex: 2;
   display: flex;

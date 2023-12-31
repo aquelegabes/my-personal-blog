@@ -14,7 +14,10 @@
 </article>
 
 @code {
-    protected override void OnInitialized()
+    [CascadingParameter]
+    private MainLayout BaseLayout { get; set; }
+
+    protected async override Task OnInitializedAsync()
     {
         this.artigo = new("Titulo 1", DateTime.Today)
             {
@@ -27,7 +30,9 @@ new("Capitulo 4", "Laboris ad est ullamco ad ea aute. Amet ipsum esse id incidid
 }
             };
 
-        this.StateHasChanged();
+        BaseLayout.SetLoading(true);
+        await Task.Delay(1000);
+        BaseLayout.SetLoading(false);
     }
 
     public Artigo artigo;
