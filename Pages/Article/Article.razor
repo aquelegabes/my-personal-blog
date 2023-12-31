@@ -1,0 +1,34 @@
+@page "/article/"
+@using MyPersonalBlog.Models;
+
+<PageTitle>@artigo.Titulo</PageTitle>
+
+<article class="artigo">
+    @foreach (var capitulo in artigo.Capitulos)
+    {
+        <section class="capitulo">
+            <h1>@capitulo.Titulo</h1>
+            <p>@capitulo.Conteudo</p>
+        </section>
+    }
+</article>
+
+@code {
+    protected override void OnInitialized()
+    {
+        this.artigo = new("Titulo 1", DateTime.Today)
+            {
+                Autor = new("Gabriel Santos"),
+                Capitulos = new List<Capitulo>()
+{
+new("Capitulo 1", "Laboris ad est ullamco ad ea aute. Amet ipsum esse id incididunt."),
+new("Capitulo 3", "Laboris ad est ullamco ad ea aute. Amet ipsum esse id incididunt."),
+new("Capitulo 4", "Laboris ad est ullamco ad ea aute. Amet ipsum esse id incididunt."),
+}
+            };
+
+        this.StateHasChanged();
+    }
+
+    public Artigo artigo;
+}
