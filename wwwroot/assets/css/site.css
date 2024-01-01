@@ -26,20 +26,18 @@
   --fonte-titulo: "Sitka Heading", serif;
   --fonte-corpo: "Georgia", serif;
 
-  /* Tamanhos de Fonte */
-  --tamanho-fonte-titulo: 2.4rem;
-  --tamanho-fonte-titulo-2: 2rem;
-  --tamanho-fonte-titulo-3: 1.6rem;
+  /* Tamanhos*/
+  --tamanho-fonte-h1: 2.4rem;
+  --tamanho-fonte-h2: 2rem;
+  --tamanho-fonte-h3: 1.6rem;
   --tamanho-fonte-corpo: 1.2rem;
+  --tamanho-borda: 0.6mm;
+  --tamanho-botao-redondo: 9mm;
+  --radius-circulo: 50%;
 
   /* Espaçamentos */
   --espacamento-linha: 1.5;
   --espacamento-letra: normal;
-
-  --tamanho-borda: 0.6mm;
-
-  --radius-circulo: 50%;
-  --tamanho-botao-redondo: 9mm;
 }
 
 body,
@@ -48,6 +46,11 @@ html {
   padding: 0;
   height: 100%;
   overflow: hidden;
+
+  min-width: 100%;
+  min-height: 100%;
+  max-width: 1320px;
+  max-height: 768px;
 }
 
 body {
@@ -59,44 +62,72 @@ body {
   line-height: var(--espacamento-linha);
 }
 
-header {
-  display: flex;
-  flex-direction: row;
-  justify-items: center;
-  height: 10%;
-}
-
 main {
   display: flex;
-  padding-bottom: 2rem;
-  height: 80%;
+  height: 82.5%;
 }
 
-footer {
-  background-color: var(--cor-fundo);
-  margin-top: auto;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  padding: 0.8rem 0;
-  opacity: 1;
-  position: fixed;
-  display: flex;
-  flex-direction: row-reverse;
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+li a {
+  all: unset;
+}
+
+li {
+  cursor: pointer;
+}
+
+li:hover {
+  border-bottom: var(--tamanho-borda) solid var(--cor-link);
+  color: var(--cor-destaque);
 }
 
 h1,
 h2,
 h3 {
   font-family: var(--fonte-titulo);
-  font-size: var(--tamanho-fonte-titulo);
+}
+
+h1 {
+  font-size: var(--tamanho-fonte-h1);
 }
 
 h2 {
-  font-size: var(--tamanho-fonte-titulo-2);
+  font-size: var(--tamanho-fonte-h2);
 }
 h3 {
-  font-size: var(--tamanho-fonte-titulo-3);
+  font-size: var(--tamanho-fonte-h3);
+}
+
+.active {
+  color: var(--cor-destaque) !important;
+}
+
+.cabecalho-base {
+  display: flex;
+  flex-direction: row;
+  justify-items: center;
+  height: 10%;
+}
+
+.rodape-base {
+  margin: 0 auto;
+  background-color: var(--cor-fundo);
+  width: 100%;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  height: 7.5%;
 }
 
 .botao-redondo {

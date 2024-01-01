@@ -2,23 +2,36 @@
 
 <PageTitle>@artigo.Titulo</PageTitle>
 
-<article class="artigo">
-    @foreach (var capitulo in artigo.Capitulos)
-    {
-        <section class="capitulo">
-            <h1>@capitulo.Titulo</h1>
-            <p>@capitulo.Conteudo</p>
-        </section>
-    }
-</article>
+<main class="conteudo-artigo">
+    <aside class="menu-lateral-artigo">
+        <nav class="navegacao-capitulos">
+            <ul>
+                @foreach (var capitulo in artigo.Capitulos)
+                {
+                    <li>
+                        <AnchorLink href="@("#" + capitulo.Titulo.ToSlug())" name="@capitulo.Titulo.ToSlug()">
+                            @capitulo.Titulo
+                        </AnchorLink>
+                    </li>
+                }
+            </ul>
+        </nav>
+    </aside>
+    <article class="artigo">
+        @foreach (var capitulo in artigo.Capitulos)
+        {
+            <section class="capitulo">
+                <h1 id="@capitulo.Titulo.ToSlug()">
+                    @capitulo.Titulo
+                </h1>
+                <p>
+                    @capitulo.Conteudo
+                </p>
+            </section>
+        }
 
-<aside>
-    <nav class="navegacao-capitulos">
-        <button class="botao-redondo botao-capitulo">&lt;</button>
-        <button class="botao-redondo botao-capitulo current">1</button>
-        <button class="botao-redondo botao-capitulo">&gt;</button>
-    </nav>
-</aside>
+    </article>
+</main>
 
 @code {
     [CascadingParameter]
@@ -31,15 +44,24 @@
                 Autor = new("Gabriel Santos"),
                 Capitulos = new List<Capitulo>()
 {
-new("Capitulo 1", "Laboris ad est ullamco ad ea aute. Amet ipsum esse id incididunt."),
-new("Capitulo 3", "Laboris ad est ullamco ad ea aute. Amet ipsum esse id incididunt."),
-new("Capitulo 4", "Laboris ad est ullamco ad ea aute. Amet ipsum esse id incididunt."),
+new("Capitulo 1 - caracteristicas de um", "Laboris ad est ullamco ad ea aute. Amet ipsum esse id incididunt."),
+new("Capitulo 2 - yabbadabba doo", "Laboris ad est ullamco ad ea aute. Amet ipsum esse id incididunt."),
+new("Capitulo 3 - hasdoias asd adsas", "Laboris ad est ullamco ad ea aute. Amet ipsum esse id incididunt."),
+new("Capitulo 4 - asd asdasdddd sd", "Laboris ad est ullamco ad ea aute. Amet ipsum esse id incididunt."),
+new("Capitulo 5 - adsdas sdas dsa", "Laboris ad est ullamco ad ea aute. Amet ipsum esse id incididunt."),
+new("Capitulo 6 - asdasas dasasd", "Laboris ad est ullamco ad ea aute. Amet ipsum esse id incididunt."),
+new("Capitulo 7 - iogjiodjfgp", "Laboris ad est ullamco ad ea aute. Amet ipsum esse id incididunt."),
+new("Capitulo 8 - ioqwioe oqweiouq oqwe", "Laboris ad est ullamco ad ea aute. Amet ipsum esse id incididunt."),
+new("Capitulo 9 - aosidj iouqwe", "Laboris ad est ullamco ad ea aute. Amet ipsum esse id incididunt."),
+new("Capitulo 10 - aosidj iouqwe", "Laboris ad est ullamco ad ea aute. Amet ipsum esse id incididunt."),
+new("Capitulo 11 - aosidj iouqwe", "Laboris ad est ullamco ad ea aute. Amet ipsum esse id incididunt."),
+new("Capitulo 12 - aosidj iouqwe", "Laboris ad est ullamco ad ea aute. Amet ipsum esse id incididunt."),
 }
             };
 
         BaseLayout?.SetLoading(true);
         await Task.Delay(1000);
-        BaseLayout?.SetLoading(false);
+        @* BaseLayout?.SetLoading(false); *@
     }
 
     public Artigo artigo;

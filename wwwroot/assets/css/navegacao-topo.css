@@ -1,10 +1,11 @@
 .navegacao-topo {
-  padding: 0 1rem;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
 }
 
 .botao-topo {
-  color: var(--cor-destaque);
-  font-size: var(--tamanho-fonte-corpo);
   border: none;
   border-radius: 50%;
   cursor: pointer;

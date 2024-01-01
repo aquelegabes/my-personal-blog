@@ -3,15 +3,13 @@
 
 <CascadingValue Value="this">
     <PageTitle>MyPersonalBlog</PageTitle>
-    <header>
+    <header id="top" name="top" class="cabecalho-base">
         <NavHeaderMenu />
     </header>
-    <main>
-        @Body
-    </main>
-    <footer>
-        <NavFooterMenu />
+    @Body
+    <footer class="rodape-base">
         <LoadingComponent IsLoading="isLoading" />
+        @* <NavFooterMenu /> *@
     </footer>
 </CascadingValue>
 
