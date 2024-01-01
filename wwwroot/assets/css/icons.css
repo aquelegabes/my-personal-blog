@@ -1,0 +1,30 @@
+.ico {
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  height: 100%;
+  width: 100%;
+}
+
+.ico-lupa {
+  background-image: url("/assets/icons/magnifier-glass-svgrepo-com.svg");
+}
+
+.ico-seta-direita {
+  background-image: url("/assets/icons/right-arrow-svgrepo-com.svg");
+}
+
+.ico-seta-esquerda {
+  background-image: url("/assets/icons/right-arrow-svgrepo-com.svg");
+  transform: rotate(180deg);
+}
+
+.ico-seta-cima {
+  background-image: url("/assets/icons/up-arrow-svgrepo-com.svg");
+}
+
+.ico-seta-baixo {
+  background-image: url("/assets/icons/up-arrow-svgrepo-com.svg");
+  transform: rotate(180deg);
+}

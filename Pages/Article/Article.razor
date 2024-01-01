@@ -1,5 +1,4 @@
 @page "/article/"
-@using MyPersonalBlog.Models;
 
 <PageTitle>@artigo.Titulo</PageTitle>
 
@@ -13,9 +12,17 @@
     }
 </article>
 
+<aside>
+    <nav class="navegacao-capitulos">
+        <button class="botao-redondo botao-capitulo">&lt;</button>
+        <button class="botao-redondo botao-capitulo current">1</button>
+        <button class="botao-redondo botao-capitulo">&gt;</button>
+    </nav>
+</aside>
+
 @code {
     [CascadingParameter]
-    private MainLayout BaseLayout { get; set; }
+    private MainLayout? BaseLayout { get; set; }
 
     protected async override Task OnInitializedAsync()
     {
@@ -30,9 +37,9 @@ new("Capitulo 4", "Laboris ad est ullamco ad ea aute. Amet ipsum esse id incidid
 }
             };
 
-        BaseLayout.SetLoading(true);
+        BaseLayout?.SetLoading(true);
         await Task.Delay(1000);
-        BaseLayout.SetLoading(false);
+        BaseLayout?.SetLoading(false);
     }
 
     public Artigo artigo;

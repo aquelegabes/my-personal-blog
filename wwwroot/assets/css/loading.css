@@ -1,7 +1,7 @@
 .loading {    
     border: var(--tamanho-borda) solid var(--cor-destaque);
     border-top: var(--tamanho-borda) solid transparent;
-    border-radius: 50%;
+    border-radius: var(--radius-circulo);
     width: 1.6rem;
     height: 1.6rem;
     animation: spin 0.75s linear infinite;

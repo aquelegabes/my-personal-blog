@@ -1,0 +1,15 @@
+.navegacao-topo {
+  padding: 0 1rem;
+}
+
+.botao-topo {
+  color: var(--cor-destaque);
+  font-size: var(--tamanho-fonte-corpo);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.botao-topo:hover {
+  border: var(--tamanho-borda) solid var(--cor-link);
+}

@@ -10,16 +10,18 @@
         @Body
     </main>
     <footer>
-        <NavFooterMenu>
-            <LoadingComponent IsLoading="isLoading" />
-        </NavFooterMenu>
+        <NavFooterMenu />
+        <LoadingComponent IsLoading="isLoading" />
     </footer>
 </CascadingValue>
 
 @code {
     private bool isLoading = false;
-    public void SetLoading(bool state) {
+
+    public void SetLoading(bool state)
+    {
         this.isLoading = state;
         StateHasChanged();
     }
+
 }

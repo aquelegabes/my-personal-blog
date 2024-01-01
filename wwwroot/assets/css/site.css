@@ -1,6 +1,8 @@
 @import url("/assets/css/loading.css");
 @import url("/assets/css/article.css");
 @import url("/assets/css/menu-navegacao.css");
+@import url("/assets/css/navegacao-topo.css");
+@import url("/assets/css/icons.css");
 
 :root {
   /* Cores - Tema Claro */
@@ -35,6 +37,9 @@
   --espacamento-letra: normal;
 
   --tamanho-borda: 0.6mm;
+
+  --radius-circulo: 50%;
+  --tamanho-botao-redondo: 9mm;
 }
 
 body,
@@ -46,9 +51,7 @@ html {
 }
 
 body {
-  margin: 0 auto;
   width: 100%;
-  height: 100%;
   color: var(--cor-texto);
   background-color: var(--cor-fundo);
   font-family: var(--fonte-corpo);
@@ -66,9 +69,7 @@ header {
 main {
   display: flex;
   padding-bottom: 2rem;
-  overflow-y: visible;
   height: 80%;
-  min-height: 90%;
 }
 
 footer {
@@ -79,29 +80,9 @@ footer {
   width: 100%;
   padding: 0.8rem 0;
   opacity: 1;
-  transition: opacity 0.5s ease-out;
   position: fixed;
   display: flex;
   flex-direction: row-reverse;
-}
-
-.navegacao-topo {
-  padding: 0 1rem;
-}
-
-.botao-topo {
-  height: 1.8rem;
-  width: 1.8rem;
-  color: var(--cor-destaque);
-  font-size: var(--tamanho-fonte-corpo);
-  border: none;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: transform 0.3s ease-in-out;
-}
-
-.botao-topo:hover {
-  border: var(--tamanho-borda) solid var(--cor-link);
 }
 
 h1,
@@ -116,6 +97,11 @@ h2 {
 }
 h3 {
   font-size: var(--tamanho-fonte-titulo-3);
+}
+
+.botao-redondo {
+  height: var(--tamanho-botao-redondo);
+  width: var(--tamanho-botao-redondo);
 }
 
 .content {

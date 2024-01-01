@@ -25,9 +25,6 @@
   text-align: center;
   justify-content: center;
   
-  height: var(--tamanho-botao-capitulo);
-  width: var(--tamanho-botao-capitulo);
-  line-height: var(--tamanho-botao-capitulo);
   transition: border 0.3s ease-out;
   transition: transform 0.3s ease-out;
 }
