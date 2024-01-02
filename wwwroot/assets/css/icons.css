@@ -28,3 +28,7 @@
   background-image: url("/assets/icons/up-arrow-svgrepo-com.svg");
   transform: rotate(180deg);
 }
+
+.ico-copyleft {
+  background-image: url("/assets/icons/copyleft-symbol-freesvg.org.svg");
+}

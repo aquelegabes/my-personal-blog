@@ -6,7 +6,10 @@ window.anchorLink = {
         // element into view, if an element is found.
         var elem = document.getElementById(elementId);
         if (elem) {
-            elem.scrollIntoView();
+            elem.scrollIntoView({
+                behavior: 'smooth'
+            });
+
             window.location.hash = elementId;
         }
     }

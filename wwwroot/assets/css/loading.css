@@ -6,6 +6,7 @@
     height: 1.6rem;
     animation: spin 0.75s linear infinite;
     margin: 0 1rem;
+    background-color: var(--cor-fundo);
 }
 
 @keyframes spin {

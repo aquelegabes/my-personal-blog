@@ -1,0 +1,23 @@
+.creditos {
+  flex: 2;
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  max-height: 100%;
+}
+
+.creditos h5 i {
+  height: 0.83em;
+  width: 0.83em;
+}
+
+.creditos h5 a {
+  cursor: pointer;
+}
+
+.creditos h5 a:hover {
+  border-bottom: var(--tamanho-borda) solid var(--cor-link);
+  color: var(--cor-destaque);
+}

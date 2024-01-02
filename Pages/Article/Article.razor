@@ -20,13 +20,9 @@
     <article class="artigo">
         @foreach (var capitulo in artigo.Capitulos)
         {
-            <section class="capitulo">
-                <h1 id="@capitulo.Titulo.ToSlug()">
-                    @capitulo.Titulo
-                </h1>
-                <p>
-                    @capitulo.Conteudo
-                </p>
+            <section id="@capitulo.Titulo.ToSlug()" class="capitulo">
+                <h1>@capitulo.Titulo</h1>
+                <p>@capitulo.Conteudo</p>
             </section>
         }
 
@@ -34,6 +30,7 @@
 </main>
 
 @code {
+#pragma warning disable CS8618
     [CascadingParameter]
     private MainLayout? BaseLayout { get; set; }
 
@@ -61,7 +58,7 @@ new("Capitulo 12 - aosidj iouqwe", "Laboris ad est ullamco ad ea aute. Amet ipsu
 
         BaseLayout?.SetLoading(true);
         await Task.Delay(1000);
-        @* BaseLayout?.SetLoading(false); *@
+        BaseLayout?.SetLoading(false);
     }
 
     public Artigo artigo;
