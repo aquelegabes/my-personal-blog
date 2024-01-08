@@ -1,0 +1,54 @@
+
+  
+  .barra-abas {
+    width: 100%;
+  
+    display: flex;
+    flex: 2;
+  }
+  
+  .barra-abas ul {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  
+  /* Estilo padrão da tag <NavLink />  */
+  
+  .barra-pesquisa {
+    height: 100%;
+  
+    display: flex;
+    flex: 1;
+  
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  
+  .barra-pesquisa input {
+    width: 15rem;
+    height: var(--altura-itens-barra-pesquisa);
+    border: var(--tamanho-borda) solid #ccc;
+    border-radius: var(--radius-barra-pesquisa);
+    text-indent: 3mm;
+  }
+  
+  .botao-pesquisa {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    height: var(--altura-itens-barra-pesquisa);
+    width: 2rem;
+  
+    color: var(--cor-botao-texto);
+    border: none;
+    border-radius: var(--radius-circulo);
+    cursor: pointer;
+  }
+  
+  .botao-pesquisa:hover {
+    border: var(--tamanho-borda) solid var(--cor-link);
+  }
+  

@@ -1,4 +1,4 @@
-@page "/article/"
+@page "/article/{idioma}/{titulo}"
 
 <PageTitle>@artigo.Titulo</PageTitle>
 
@@ -31,8 +31,19 @@
 
 @code {
 #pragma warning disable CS8618
-    [CascadingParameter]
-    private MainLayout? BaseLayout { get; set; }
+    [CascadingParameter(Name="IsLoading")]
+    private bool? IsLoading { get; set; }
+
+    [Parameter]
+    public string Idioma { get; set; }
+
+    [Parameter]
+    public string Titulo { get; set; }
+
+    private void SetLoading(bool state) {
+        this.IsLoading = state;
+        StateHasChanged();
+    }
 
     protected async override Task OnInitializedAsync()
     {
@@ -56,9 +67,9 @@ new("Capitulo 12 - aosidj iouqwe", "Laboris ad est ullamco ad ea aute. Amet ipsu
 }
             };
 
-        BaseLayout?.SetLoading(true);
+        SetLoading(true);
         await Task.Delay(1000);
-        BaseLayout?.SetLoading(false);
+        SetLoading(false);
     }
 
     public Artigo artigo;

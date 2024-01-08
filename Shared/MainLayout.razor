@@ -1,25 +1,18 @@
 ﻿@using MyPersonalBlog.Components.Loading
 @inherits LayoutComponentBase
 
-<CascadingValue Value="this">
-    <PageTitle>MyPersonalBlog</PageTitle>
-    <header id="top" name="top" class="cabecalho-base">
-        <NavHeaderMenu />
-    </header>
-    @Body
-    <footer class="rodape-base">
+<PageTitle>MyPersonalBlog</PageTitle>
+<header id="top" name="top" class="cabecalho-base">
+    <NavHeaderMenu />
+</header>
+@Body
+<footer class="rodape-base">
+    <CascadingValue Value="isLoading" Name="IsLoading">
         <LoadingComponent IsLoading="isLoading" />
-        <CreditsFooterContent />
-    </footer>
-</CascadingValue>
+    </CascadingValue>
+    <CreditsFooterContent />
+</footer>
 
 @code {
     private bool isLoading = false;
-
-    public void SetLoading(bool state)
-    {
-        this.isLoading = state;
-        StateHasChanged();
-    }
-
 }

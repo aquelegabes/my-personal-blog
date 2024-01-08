@@ -1,9 +1,5 @@
 @import url("/assets/css/loading.css");
-@import url("/assets/css/article.css");
-@import url("/assets/css/menu-navegacao.css");
 @import url("/assets/css/icons.css");
-@import url("/assets/css/index.css");
-@import url("/assets/css/creditos-rodape.css");
 
 :root {
   /* Cores - Tema Claro */
@@ -34,11 +30,15 @@
   --tamanho-fonte-corpo: 1.2rem;
   --tamanho-borda: 0.6mm;
   --tamanho-botao-redondo: 9mm;
+  --tamanho-barra-pesquisa: 15rem;
   --radius-circulo: 50%;
+  --radius-barra-pesquisa: 15px;
+  --altura-itens-barra-pesquisa: 1.8rem;
 
   /* Espaçamentos */
   --espacamento-linha: 1.5;
   --espacamento-letra: normal;
+  --padding-barra-pesquisa: 1mm;
 }
 
 body,

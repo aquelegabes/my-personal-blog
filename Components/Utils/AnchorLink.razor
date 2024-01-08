@@ -1,4 +1,5 @@
-﻿
+﻿<a @attributes="this.Attributes" @onclick="this.AnchorOnClickAsync" @onclick:preventDefault="@this.preventDefault">@this.ChildContent</a>
+
 @code {
     #pragma warning disable CS8618
 
@@ -63,5 +64,3 @@
     }
 
 }
-
-<a @attributes="this.Attributes" @onclick="this.AnchorOnClickAsync" @onclick:preventDefault="@this.preventDefault">@this.ChildContent</a>
