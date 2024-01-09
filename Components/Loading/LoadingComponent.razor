@@ -1,9 +1,5 @@
-@if (IsLoading)
+@if (LoadingService is not null 
+    && LoadingService.IsLoading)
 {
     <span class="loading"></span>
-}
-
-@code {
-    [Parameter]
-    public bool IsLoading { get; set; } = false;
 }

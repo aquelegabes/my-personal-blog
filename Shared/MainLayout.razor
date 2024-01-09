@@ -1,4 +1,6 @@
-﻿@using MyPersonalBlog.Components.Loading
+﻿@using MyPersonalBlog.Components
+@using MyPersonalBlog.Components.Loading
+
 @inherits LayoutComponentBase
 
 <PageTitle>MyPersonalBlog</PageTitle>
@@ -7,12 +9,6 @@
 </header>
 @Body
 <footer class="rodape-base">
-    <CascadingValue Value="isLoading" Name="IsLoading">
-        <LoadingComponent IsLoading="isLoading" />
-    </CascadingValue>
+    <LoadingComponent />
     <CreditsFooterContent />
 </footer>
-
-@code {
-    private bool isLoading = false;
-}
