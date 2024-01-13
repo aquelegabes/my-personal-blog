@@ -1,0 +1,12 @@
+<article class="item-artigo">
+    <section class="item-artigo-conteudo">
+        <h1>@Title</h1>
+        <p>@DisplayContent</p>
+    </section>
+    <div class="item-artigo-tags">
+        @foreach (var tag in Tags)
+        {
+            <span>@tag.Value</span>
+        }
+    </div>
+</article>

@@ -3,9 +3,9 @@ using Microsoft.AspNetCore.Components;
 using MyPersonalBlog.Models;
 using MyPersonalBlog.Services;
 
-namespace MyPersonalBlog.Pages.Article;
+namespace MyPersonalBlog.Pages.Articles.Details;
 
-public partial class Article
+public partial class ArticleDetails
 {
     [Inject]
     private LoadingService? LoadingService { get; set; }
