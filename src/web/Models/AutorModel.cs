@@ -1,12 +1,12 @@
 namespace MyPersonalBlog.Models;
 
-public class Autor
+public class AutorModel
 {
-    public Autor()
+    public AutorModel()
     {
 
     }
-    public Autor(string nome)
+    public AutorModel(string nome)
     {
         this.Nome = nome;
     }

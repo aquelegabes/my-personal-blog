@@ -23,7 +23,7 @@ public partial class ArticleDetails
         this.artigo = new("Titulo 1", DateTime.Today)
         {
             Autor = new("Gabriel Santos"),
-            Capitulos = new List<Capitulo>()
+            Capitulos = new List<CapituloModel>()
 {
 new("Capitulo 1 - caracteristicas de um", "Laboris ad est ullamco ad ea aute. Amet ipsum esse id incididunt."),
 new("Capitulo 2 - yabbadabba doo", "Laboris ad est ullamco ad ea aute. Amet ipsum esse id incididunt."),
@@ -45,5 +45,5 @@ new("Capitulo 12 - aosidj iouqwe", "Laboris ad est ullamco ad ea aute. Amet ipsu
         this.LoadingService?.SetLoading(false);
     }
 
-    public Artigo artigo;
+    public ArtigoModel artigo;
 }

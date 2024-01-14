@@ -2,10 +2,21 @@
 
 @page "/articles"
 
-<main>
-    <ArticleCard 
-        Title="@Title1" 
-        DisplayContent="@DisplayContent1"
-        Tags="@Tags1" 
-    />
+
+<main class="artigos">
+    <aside class="menu-filtragem">
+        <form>
+            <fieldset>
+                <label>Título:</label>
+                <input type="text" />
+                <label>Tags:</label>
+                <input type="text" />
+            </fieldset>
+        </form>
+    </aside>
+    <div class="listagem-artigos">
+        <ArticleCard Title="@Title1" DisplayContent="@DisplayContent1" Tags="@Tags1" Href="/articles/br/teste1-tee" />
+        <ArticleCard Title="@Title1" DisplayContent="@DisplayContent1" Tags="@Tags1" Href="/articles/br/teste1-tee" />
+        <ArticleCard Title="@Title1" DisplayContent="@DisplayContent1" Tags="@Tags1" Href="/articles/br/teste1-tee" />
+    </div>
 </main>

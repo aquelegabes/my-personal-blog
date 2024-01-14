@@ -1,12 +1,29 @@
 <article class="item-artigo">
     <section class="item-artigo-conteudo">
-        <h1>@Title</h1>
-        <p>@DisplayContent</p>
+        <NavLink href="@(Href)" Match="NavLinkMatch.All">
+            <h1>@Title</h1>
+            <p>@DisplayContent</p>
+        </NavLink>
     </section>
     <div class="item-artigo-tags">
-        @foreach (var tag in Tags)
+        @for (int pageIndex = 0; hasNextPage; pageIndex++)
         {
-            <span>@tag.Value</span>
+            var currentPage = Tags
+            .Skip(pageIndex * MAX_TAGS_PER_LINE)
+            .Take(MAX_TAGS_PER_LINE);
+
+            hasNextPage = currentPage.Any();
+
+            if (!hasNextPage) break;
+
+            <div class="item-artigo-tags-linha">
+                @foreach (var tag in currentPage)
+                {
+                    <span>
+                        <NavLink href="@(tag.Href)">@(tag.Name)</NavLink>
+                    </span>
+                }
+            </div>
         }
     </div>
 </article>

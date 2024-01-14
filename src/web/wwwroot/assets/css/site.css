@@ -77,17 +77,14 @@ ul {
   list-style: none;
 }
 
-li {
-  cursor: pointer;
-}
-
 a {
   all: unset;
 }
 
-li:hover {
+a:hover {
   border-bottom: var(--tamanho-borda) solid var(--cor-link);
   color: var(--cor-destaque);
+  cursor: pointer;
 }
 
 h1,

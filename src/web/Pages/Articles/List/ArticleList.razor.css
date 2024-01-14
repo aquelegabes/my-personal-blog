@@ -1,0 +1,17 @@
+.artigos {
+    height: 82.5%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.menu-filtragem {
+
+}
+
+.listagem-artigos {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    height: 100%;
+}

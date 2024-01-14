@@ -1,8 +1,8 @@
 namespace MyPersonalBlog.Models;
 
-public class Capitulo
+public class CapituloModel
 {
-    public Capitulo(string titulo, string conteudo)
+    public CapituloModel(string titulo, string conteudo)
     {
         this.Titulo = titulo;
         this.Conteudo = conteudo;
