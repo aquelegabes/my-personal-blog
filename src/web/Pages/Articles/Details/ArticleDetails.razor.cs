@@ -11,10 +11,10 @@ public partial class ArticleDetails
     private LoadingService? LoadingService { get; set; }
 
     [Parameter]
-    public string Idioma { get; set; }
+    public string Language { get; set; }
 
     [Parameter]
-    public string Titulo { get; set; }
+    public string Title { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
@@ -22,8 +22,8 @@ public partial class ArticleDetails
 
         this.artigo = new("Titulo 1", DateTime.Today)
         {
-            Autor = new("Gabriel Santos"),
-            Capitulos = new List<CapituloModel>()
+            Author = new("Gabriel Santos"),
+            Chapters = new List<ChapterModel>()
 {
 new("Capitulo 1 - caracteristicas de um", "Laboris ad est ullamco ad ea aute. Amet ipsum esse id incididunt."),
 new("Capitulo 2 - yabbadabba doo", "Laboris ad est ullamco ad ea aute. Amet ipsum esse id incididunt."),
@@ -45,5 +45,5 @@ new("Capitulo 12 - aosidj iouqwe", "Laboris ad est ullamco ad ea aute. Amet ipsu
         this.LoadingService?.SetLoading(false);
     }
 
-    public ArtigoModel artigo;
+    public ArticleModel artigo;
 }

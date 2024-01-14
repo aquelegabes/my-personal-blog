@@ -1,16 +1,16 @@
-@page "/articles/{idioma}/{titulo}"
+@page "/articles/{language}/{title}"
 
-<PageTitle>@artigo.Titulo</PageTitle>
+<PageTitle>@artigo.Title</PageTitle>
 
 <main class="conteudo-artigo">
     <aside class="menu-lateral-artigo">
         <nav class="navegacao-capitulos">
             <ul>
-                @foreach (var capitulo in artigo.Capitulos)
+                @foreach (var capitulo in artigo.Chapters)
                 {
                     <li>
-                        <AnchorLink href="@("#" + capitulo.Titulo.ToSlug())" name="@capitulo.Titulo.ToSlug()">
-                            @capitulo.Titulo
+                        <AnchorLink href="@("#" + capitulo.Title.ToSlug())" name="@capitulo.Title.ToSlug()">
+                            @capitulo.Title
                         </AnchorLink>
                     </li>
                 }
@@ -18,11 +18,11 @@
         </nav>
     </aside>
     <article class="artigo">
-        @foreach (var capitulo in artigo.Capitulos)
+        @foreach (var capitulo in artigo.Chapters)
         {
-            <section id="@capitulo.Titulo.ToSlug()" class="capitulo">
-                <h1>@capitulo.Titulo</h1>
-                <p>@capitulo.Conteudo</p>
+            <section id="@capitulo.Title.ToSlug()" class="capitulo">
+                <h1>@capitulo.Title</h1>
+                <p>@capitulo.Content</p>
             </section>
         }
 
