@@ -1,11 +1,14 @@
-using MyPersonalBlog;
+using MyPersonalBlog.Configurations;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
-builder.Services.AddServices();
+
+// app configurations
+builder.AddAppConfiguration();
+builder.Services.AddAppServices();
 
 var app = builder.Build();
 

@@ -7,6 +7,26 @@
   width: 100%;
 }
 
+.ico-github {
+  background-image: url("/assets/icons/icons8-github.svg");
+}
+
+.ico-instagram {
+  background-image: url("/assets/icons/icons8-instagram.svg");
+}
+
+.ico-linkedin {
+  background-image: url("/assets/icons/icons8-linkedin.svg");
+}
+
+.ico-tiktok {
+  background-image: url("/assets/icons/icons8-tiktok.svg");
+}
+
+.ico-youtube {
+  background-image: url("/assets/icons/icons8-youtube.svg");
+}
+
 .ico-lupa {
   background-image: url("/assets/icons/magnifier-glass-svgrepo-com.svg");
 }
