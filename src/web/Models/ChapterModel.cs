@@ -9,4 +9,8 @@ public class ChapterModel
     }
     public string Title { get; set; } = string.Empty;
     public string Content { get; set; } = string.Empty;
+    public string[] GetParagraphs()
+    {
+        return Content.Split('\r');
+    }
 }

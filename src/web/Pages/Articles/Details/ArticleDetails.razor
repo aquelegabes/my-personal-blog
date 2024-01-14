@@ -1,30 +1,39 @@
 @page "/articles/{language}/{title}"
 
-<PageTitle>@artigo.Title</PageTitle>
+<PageTitle>@(artigo.Title) - @(artigo.Author.Nome)</PageTitle>
 
 <main class="conteudo-artigo">
-    <aside class="menu-lateral-artigo">
-        <nav class="navegacao-capitulos">
-            <ul>
-                @foreach (var capitulo in artigo.Chapters)
-                {
-                    <li>
-                        <AnchorLink href="@("#" + capitulo.Title.ToSlug())" name="@capitulo.Title.ToSlug()">
-                            @capitulo.Title
-                        </AnchorLink>
-                    </li>
-                }
-            </ul>
-        </nav>
+    <aside class=@(this.isMenuShowing ?"menu-lateral-artigo" : "menu-lateral-artigo minimized")>
+        @if (this.isMenuShowing)
+        {
+            <nav class="navegacao-capitulos">
+                <ul>
+                    @foreach (var capitulo in artigo.Chapters)
+                    {
+                        <li>
+                            <AnchorLink href="@("#" + capitulo.Title.ToSlug())" name="@capitulo.Title.ToSlug()">
+                                @(capitulo.Title)
+                            </AnchorLink>
+                        </li>
+                    }
+                </ul>
+            </nav>
+        }
+        <button type="button" class=@(this.isMenuShowing ? "botao-redondo" : "botao-redondo minimized")
+            @onclick="ToggleMenu">
+            <span class=@(this.isMenuShowing ? "ico ico-seta-esquerda" : "ico ico-seta-direita")></span>
+        </button>
     </aside>
-    <article class="artigo">
+    <article class=@(this.isMenuShowing ? "artigo" : "artigo menu-minimized")>
         @foreach (var capitulo in artigo.Chapters)
         {
-            <section id="@capitulo.Title.ToSlug()" class="capitulo">
-                <h1>@capitulo.Title</h1>
-                <p>@capitulo.Content</p>
+            <section id="@(capitulo.Title.ToSlug())" class="capitulo">
+                <h1>@(capitulo.Title)</h1>
+                @foreach (var paragraph in capitulo.GetParagraphs())
+                {
+                    <p>@(paragraph)</p>
+                }
             </section>
         }
-
     </article>
 </main>
