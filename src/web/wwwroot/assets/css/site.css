@@ -82,7 +82,6 @@ a {
 }
 
 a:hover {
-  border-bottom: var(--tamanho-borda) solid var(--cor-link);
   color: var(--cor-destaque);
   cursor: pointer;
 }
@@ -111,6 +110,23 @@ h3 {
 .botao-redondo {
   height: var(--tamanho-botao-redondo);
   width: var(--tamanho-botao-redondo);
+}
+
+input {
+  width: 15rem;
+  height: var(--altura-itens-barra-pesquisa);
+  border: var(--tamanho-borda) solid #ccc;
+  border-radius: var(--radius-barra-pesquisa);
+  text-indent: 4mm;
+  font-style: italic;
+}
+
+.unset {
+  all: unset;
+}
+
+.hover-border:hover {
+  border-bottom: var(--tamanho-borda) solid var(--cor-link);
 }
 
 .content {

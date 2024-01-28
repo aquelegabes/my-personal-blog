@@ -1,0 +1,13 @@
+@using MyPersonalBlog.Components.Tag.TagNavigationList;
+
+<article class="item-artigo">
+    <nav>
+        <NavLink href="@(Href)" Match="NavLinkMatch.All">
+            <section class="item-artigo-conteudo">
+                <h1>@Title</h1>
+                <p>@DisplayContent</p>
+            </section>
+        </NavLink>
+    </nav>
+    <TagNavigationList Tags="@Tags" />
+</article>

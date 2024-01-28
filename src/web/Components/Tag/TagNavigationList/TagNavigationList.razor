@@ -1,0 +1,21 @@
+@using MyPersonalBlog.Components.Tag.TagItem.TagItemLink
+
+<nav class="item-artigo-tags">
+  @for (int pageIndex = 0; hasNextPage; pageIndex++)
+  {
+    var currentPage = Tags
+    .Skip(pageIndex * MaxTagsPerLine)
+    .Take(MaxTagsPerLine);
+
+    hasNextPage = currentPage.Any();
+
+    if (!hasNextPage) break;
+
+    <ul class="item-artigo-tags-linha">
+      @foreach (var tag in currentPage)
+      {
+        <TagItemLink Tag="@tag" IsListItem="@true" />
+      }
+    </ul>
+  }
+</nav>

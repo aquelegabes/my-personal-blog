@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Components;
 using MyPersonalBlog.Services;
 
-namespace MyPersonalBlog.Components.Loading;
+namespace MyPersonalBlog.Components.Utils.Loading;
 
 public partial class LoadingComponent
 {

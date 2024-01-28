@@ -1,0 +1,16 @@
+.fieldset-form-filter {
+    display: flex;
+    flex-direction: column;
+    border: unset;
+    margin-top: 1.5rem;
+    
+    height: 90%;
+}
+
+.form-filter {
+    height: 100%;
+}
+
+.input {
+    margin-bottom: 1.5rem;
+}

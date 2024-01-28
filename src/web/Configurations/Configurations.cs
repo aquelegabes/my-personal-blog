@@ -1,4 +1,3 @@
-using MyPersonalBlog.Services;
 namespace MyPersonalBlog.Configurations;
 
 public static class Configurations

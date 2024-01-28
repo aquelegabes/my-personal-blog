@@ -1,4 +1,4 @@
-namespace MyPersonalBlog.Models;
+namespace MyPersonalBlog.Models.Article;
 
 public class ArticleModel
 {

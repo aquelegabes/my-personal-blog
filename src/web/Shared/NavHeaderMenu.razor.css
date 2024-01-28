@@ -22,13 +22,7 @@
   align-items: center;
 }
 
-.barra-pesquisa input {
-  width: 15rem;
-  height: var(--altura-itens-barra-pesquisa);
-  border: var(--tamanho-borda) solid #ccc;
-  border-radius: var(--radius-barra-pesquisa);
-  text-indent: 3mm;
-}
+.barra-pesquisa 
 
 .botao-pesquisa {
   display: flex;

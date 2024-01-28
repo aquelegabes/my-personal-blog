@@ -1,22 +1,35 @@
-@using MyPersonalBlog.Components.ArticleCard
+@using MyPersonalBlog.Components.Article.ArticleCard
+@using MyPersonalBlog.Components.Input.InputTags
+@using MyPersonalBlog.Components.Article.ArticleFilter
 
 @page "/articles"
 <PageTitle>Artigos - Gabriel Santos</PageTitle>
 
 <main class="artigos">
-    <aside class="menu-filtragem">
-        <form>
-            <fieldset>
-                <label>Título:</label>
-                <input type="text" />
-                <label>Tags:</label>
-                <input type="text" />
-            </fieldset>
-        </form>
-    </aside>
-    <div class="listagem-artigos">
-        <ArticleCard Title="@Title1" DisplayContent="@DisplayContent1" Tags="@Tags1" Href="/articles/br/teste1-tee" />
-        <ArticleCard Title="@Title1" DisplayContent="@DisplayContent1" Tags="@Tags1" Href="/articles/br/teste1-tee" />
-        <ArticleCard Title="@Title1" DisplayContent="@DisplayContent1" Tags="@Tags1" Href="/articles/br/teste1-tee" />
-    </div>
+    <ArticleFilter Model="Filter" OnFilter="async(cToken) => await OnFilter(cToken)" />
+    @if (articleList.Any())
+    {
+        <div class="listagem-artigos">
+            @foreach (var article in articleList)
+            {
+                <ArticleCard Title="@(article.Title)" DisplayContent="@(article.DisplayContent)" Tags="@(article.Tags)"
+                    Href="@(article.Url)" />
+            }
+        </div>
+    }
+    else
+    {
+        @if (LoadingService.IsLoading)
+        {
+            <section>
+                <h4>Carregando...</h4>
+            </section>
+        }
+        else
+        {
+            <section>
+                <h4>Nenhuma postagem encontrada...</h4>
+            </section>
+        }
+    }
 </main>

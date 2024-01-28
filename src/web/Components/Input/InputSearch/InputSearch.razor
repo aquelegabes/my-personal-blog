@@ -1,0 +1,10 @@
+<input 
+    @attributes="InputAttributes" 
+    type="text" 
+    list="available-search-items"/>
+<datalist id="available-search-items">
+    @foreach (var option in DataListOptions)
+    {
+        <option value="@(option)"></option>
+    }
+</datalist>

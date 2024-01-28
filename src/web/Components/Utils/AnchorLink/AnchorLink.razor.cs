@@ -3,7 +3,7 @@
 using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
 
-namespace MyPersonalBlog.Components.Utils;
+namespace MyPersonalBlog.Components.Utils.AnchorLink;
 public partial class AnchorLink
 {
 

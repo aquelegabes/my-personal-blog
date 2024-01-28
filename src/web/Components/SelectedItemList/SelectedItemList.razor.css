@@ -1,0 +1,16 @@
+.selected-list {
+    display:flex;
+    flex-direction: column;
+    margin-left: 2rem;
+    margin-top: .5rem;
+    list-style: square;
+}
+
+.selected-item {
+    font-size: x-small;
+    cursor: pointer;
+}
+
+.selected-item:hover {
+    color: var(--cor-destaque);
+}

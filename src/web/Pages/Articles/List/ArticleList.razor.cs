@@ -1,25 +1,54 @@
-using MyPersonalBlog.Models;
-
+#pragma warning disable CS8618
+global using MyPersonalBlog.Models.Article;
 namespace MyPersonalBlog.Pages.Articles.List;
 
 public partial class ArticleList
 {
-    public string Title1 = "Ea dolore esse ipsum";
-    public string DisplayContent1 = "Pariatur quis nulla non mollit nulla amet cupidatat laboris. In consectetur qui do irure esse elit. Quis Lorem sint mollit nulla qui sunt tempor est proident nulla consequat. Sunt fugiat fugiat occaecat veniam id adipisicing in id. Ex reprehenderit officia consectetur nostrud et ullamco tempor...";
-    public IEnumerable<TagModel> Tags1 = 
-        new List<TagModel> 
+    [Inject]
+    private ArticleService? Service { get; set; }
+
+    [Inject]
+    private LoadingService LoadingService { get; set; }
+
+    private IEnumerable<ArticleListItemModel> articleList { get; set; }
+        = Enumerable.Empty<ArticleListItemModel>();
+
+    private ArticleFilterModel Filter { get; set; } = new();
+
+    protected override void OnParametersSet()
+    {
+        base.OnParametersSet();
+        LoadingService.Notify += () => InvokeAsync(StateHasChanged);
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        LoadingService.SetLoading(true);
+
+        await Task.Delay(500);
+        articleList = Service!.GetArticles(Filter);
+
+        LoadingService.SetLoading(false);
+    }
+
+    private async Task OnFilter(CancellationToken cToken)
+    {
+        try
         {
-            new("Tecnologia"),
-            new("CyberSec"),
-            new("CSharp"),
-            new("C#"),
-            new(".NET"),
-            new("Tech"),
-            new("Engenharia de Software"),
-            new("Software"),
-            new("Engenharia"),
-            new("Backend"),
-            new("Microsoft"),
-            new("DOTNET"),
-        };
+            LoadingService.SetLoading(true);
+            await Task.Delay(500);
+
+            if (!cToken.IsCancellationRequested)
+                articleList = Service!.GetArticles(Filter);
+        }
+        catch (Exception)
+        {
+
+        }
+        finally
+        {
+            LoadingService.SetLoading(false);
+        }
+    }
+
 }

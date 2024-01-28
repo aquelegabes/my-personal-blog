@@ -1,0 +1,9 @@
+.tag-item {
+    border-left: 1px solid var(--cor-destaque);
+    border-bottom: 2px solid var(--cor-destaque);
+    border-radius: 12px;
+    font-size: x-small;
+    text-align: center;
+    margin: 0.3rem;
+    padding: 0 0.5rem;
+  }
