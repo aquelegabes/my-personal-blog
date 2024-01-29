@@ -6,7 +6,7 @@
 <PageTitle>Artigos - Gabriel Santos</PageTitle>
 
 <main class="artigos">
-    <ArticleFilter Model="Filter" OnFilter="async(cToken) => await OnFilter(cToken)" />
+        <ArticleFilter Model="Filter" OnFilter="OnFilter" />
     @if (articleList.Any())
     {
         <div class="listagem-artigos">

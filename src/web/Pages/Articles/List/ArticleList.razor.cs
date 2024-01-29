@@ -36,18 +36,18 @@ public partial class ArticleList
         try
         {
             LoadingService.SetLoading(true);
+            articleList = Enumerable.Empty<ArticleListItemModel>();
+            StateHasChanged();
             await Task.Delay(500);
 
             if (!cToken.IsCancellationRequested)
                 articleList = Service!.GetArticles(Filter);
         }
-        catch (Exception)
-        {
-
-        }
+        catch (Exception) {}
         finally
         {
             LoadingService.SetLoading(false);
+            StateHasChanged();
         }
     }
 
