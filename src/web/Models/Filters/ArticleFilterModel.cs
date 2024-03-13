@@ -5,6 +5,6 @@ public class ArticleFilterModel
     public ICollection<string> Tags { get; set; } =
         Enumerable.Empty<string>().ToList();
 
-    public string Title { get; set; }
+    public string Titulo { get; set; }
         = string.Empty;
 }

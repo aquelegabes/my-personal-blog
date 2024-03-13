@@ -6,20 +6,19 @@
 <PageTitle>Artigos - Gabriel Santos</PageTitle>
 
 <main class="artigos">
-        <ArticleFilter Model="Filter" OnFilter="OnFilter" />
-    @if (articleList.Any())
+    <ArticleFilter Model="Filter" AoFiltrar="AoFiltrar" />
+    @if (listaDeArtigos.Any())
     {
         <div class="listagem-artigos">
-            @foreach (var article in articleList)
+            @foreach (var article in listaDeArtigos)
             {
-                <ArticleCard Title="@(article.Title)" DisplayContent="@(article.DisplayContent)" Tags="@(article.Tags)"
-                    Href="@(article.Url)" />
+                <ArticleCard Artigo="article" AoAdicionarTagNoFiltro="AoAdicionarTagNoFiltro" />
             }
         </div>
     }
     else
     {
-        @if (LoadingService.IsLoading)
+        @if (LoadingService.EstaCarregando)
         {
             <section>
                 <h4>Carregando...</h4>

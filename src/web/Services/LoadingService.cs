@@ -2,12 +2,13 @@ namespace MyPersonalBlog.Services;
 
 public class LoadingService
 {
-    private bool _isLoading = false;
-    public bool IsLoading => _isLoading;
-    public event Action? Notify;
+    private bool _estaCarregando = false;
+    public bool EstaCarregando => _estaCarregando;
+    public event Action? Notificar;
 
-    public void SetLoading(bool state) {
-        this._isLoading = state;
-        Notify?.Invoke();
+    public void AlterarEstado(bool estado)
+    {
+        this._estaCarregando = estado;
+        Notificar?.Invoke();
     }
 }

@@ -7,6 +7,9 @@
     animation: spin 0.75s linear infinite;
     margin: 0 1rem;
     background-color: var(--cor-fundo);
+    position: absolute;
+    left: 0;
+    bottom: 1rem;
 }
 
 @keyframes spin {

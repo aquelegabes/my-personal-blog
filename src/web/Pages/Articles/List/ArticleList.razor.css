@@ -6,9 +6,6 @@
 }
 
 .listagem-artigos {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
     overflow: auto;
     height: 100%;
 }

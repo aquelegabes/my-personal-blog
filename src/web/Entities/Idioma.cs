@@ -1,6 +1,6 @@
 namespace MyPersonalBlog.Entities;
 
-public enum Language
+public enum Idioma
 {
     BR = 1,
     EN,

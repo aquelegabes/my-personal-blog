@@ -1,4 +1,5 @@
 @import url("/assets/css/icons.css");
+@import url("/assets/css/fonts.css");
 
 :root {
   /* Cores - Tema Claro */
@@ -19,8 +20,8 @@
   --cor-botao-texto-escuro: #fff;
 
   /* Fontes */
-  --fonte-titulo: "Sitka Heading", serif;
-  --fonte-corpo: "Georgia", serif;
+  --fonte-titulo: "Ubuntu Bold", "Georgia", serif;
+  --fonte-corpo: "Ubuntu", serif;
 
   /* Tamanhos*/
   --tamanho-fonte-h1: 2.4rem;

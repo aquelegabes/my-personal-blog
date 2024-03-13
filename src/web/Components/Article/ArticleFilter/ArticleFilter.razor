@@ -3,8 +3,8 @@
 <aside class="menu-filter">
     <form class="form-filter">
         <fieldset class="fieldset-form-filter">
-            <input class="input" type="text" placeholder="Título..." @bind-value="Model.Title" />
-            <InputTags SelectedTags="Model.Tags" OnAddItemCallback="OnFilter" OnRemoveItemCallback="OnFilter" />
+            <input class="input" type="text" placeholder="Título..." @bind-value="Model.Titulo" @onkeydown="OnTitleFilter" />
+            <InputTags TagsSelecionadas="Model.Tags" AoAdicionarItem="AoFiltrar" AoRemoverItem="AoFiltrar" />
         </fieldset>
     </form>
 </aside>

@@ -1,7 +1,7 @@
 @using MyPersonalBlog.Components.Input.InputSearch;
 @using MyPersonalBlog.Components.SelectedItemList;
 
-<InputSearch placeholder="tag1, tag2..." DataListOptions="@DataListOptions" @onkeyup="OnSelectTag"
-    @oninput="OnTextChange" value="@InputValue" />
-<SelectedItemList SelectedItems="SelectedTags" DataListOptions="@DataListOptions"
-    OnRemoveItemCallback="@OnRemoveItemCallback" />
+<InputSearch placeholder="tag1, tag2..." DataListOptions="@DataListOptions" @onkeyup="AoSelecionarTag"
+    @oninput="AoAlterarTexto" value="@InputValue" />
+<SelectedItemList ItemsSelecionados="TagsSelecionadas" DataListOptions="@DataListOptions"
+    AoRemoverItem="@AoRemoverItem" />

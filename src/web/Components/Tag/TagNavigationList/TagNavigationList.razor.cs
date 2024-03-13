@@ -2,19 +2,27 @@ namespace MyPersonalBlog.Components.Tag.TagNavigationList;
 
 public partial class TagNavigationList
 {
-    private const int MAX_TAGS_PER_LINE = 5;
-    private bool hasNextPage = false;
+    private const int MAXIMO_DE_TAGS_POR_LINHA = 5;
+    private bool temProximaPagina = false;
 
     [Parameter]
     public IEnumerable<TagModel> Tags { get; set; } =
         new List<TagModel>();
 
     [Parameter]
-    public int MaxTagsPerLine { get;set; } = MAX_TAGS_PER_LINE;
+    public int MaximoDeTagsPorLinha { get; set; } = MAXIMO_DE_TAGS_POR_LINHA;
+
+    [Parameter]
+    public EventCallback<TagModel> AoAdicionarTagNoFiltro { get; set; }
 
     protected override void OnParametersSet()
     {
         base.OnParametersSet();
-        this.hasNextPage = Tags.Any();
+        this.temProximaPagina = Tags.Any();
+    }
+
+    private async Task AoClicarNaTag(TagModel tag)
+    {
+        await AoAdicionarTagNoFiltro.InvokeAsync(tag);
     }
 }

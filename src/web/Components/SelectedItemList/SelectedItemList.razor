@@ -1,7 +1,7 @@
 <ul class="selected-list">
-    @foreach (var item in SelectedItems)
+    @foreach (var item in ItemsSelecionados)
     {
-        <button type="button" class="unset" @onclick="async (MouseEventArgs args) => await OnRemoveSelectedItem(args, item)">
+        <button type="button" class="unset" @onclick="async (MouseEventArgs args) => await AoRemoverItemSelecionado(args, item)">
             <li class="selected-item">@(item)</li>
         </button>
     }

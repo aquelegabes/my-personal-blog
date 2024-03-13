@@ -2,7 +2,7 @@
 
 @using MyPersonalBlog.Components.Utils.AnchorLink
 
-<PageTitle>@(artigo.Title) - @(artigo.Author.Nome)</PageTitle>
+<PageTitle>@(artigo.Titulo) - @(artigo.Autor.Nome)</PageTitle>
 
 <main class="conteudo-artigo">
     <aside class=@(this.isMenuShowing ?"menu-lateral-artigo" : "menu-lateral-artigo minimized")>
@@ -10,11 +10,11 @@
         {
             <nav class="navegacao-capitulos">
                 <ul>
-                    @foreach (var capitulo in artigo.Chapters)
+                    @foreach (var capitulo in artigo.Capitulos)
                     {
                         <li>
-                            <AnchorLink href="@("#" + capitulo.Title.ToSlug())" name="@capitulo.Title.ToSlug()">
-                                @(capitulo.Title)
+                            <AnchorLink href="@("#" + capitulo.Titulo.ToSlug())" name="@capitulo.Titulo.ToSlug()">
+                                @(capitulo.Titulo)
                             </AnchorLink>
                         </li>
                     }
@@ -27,11 +27,11 @@
         </button>
     </aside>
     <article class=@(this.isMenuShowing ? "artigo" : "artigo menu-minimized")>
-        @foreach (var capitulo in artigo.Chapters)
+        @foreach (var capitulo in artigo.Capitulos)
         {
-            <section id="@(capitulo.Title.ToSlug())" class="capitulo">
-                <h1>@(capitulo.Title)</h1>
-                @foreach (var paragraph in capitulo.GetParagraphs())
+            <section id="@(capitulo.Titulo.ToSlug())" class="capitulo">
+                <h1>@(capitulo.Titulo)</h1>
+                @foreach (var paragraph in capitulo.ObterParagrafos())
                 {
                     <p>@(paragraph)</p>
                 }

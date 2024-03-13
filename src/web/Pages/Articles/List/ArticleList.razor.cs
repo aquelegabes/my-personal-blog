@@ -1,5 +1,6 @@
 #pragma warning disable CS8618
 global using MyPersonalBlog.Models.Article;
+
 namespace MyPersonalBlog.Pages.Articles.List;
 
 public partial class ArticleList
@@ -10,7 +11,7 @@ public partial class ArticleList
     [Inject]
     private LoadingService LoadingService { get; set; }
 
-    private IEnumerable<ArticleListItemModel> articleList { get; set; }
+    private IEnumerable<ArticleListItemModel> listaDeArtigos { get; set; }
         = Enumerable.Empty<ArticleListItemModel>();
 
     private ArticleFilterModel Filter { get; set; } = new();
@@ -18,35 +19,44 @@ public partial class ArticleList
     protected override void OnParametersSet()
     {
         base.OnParametersSet();
-        LoadingService.Notify += () => InvokeAsync(StateHasChanged);
+        LoadingService.Notificar += () => InvokeAsync(StateHasChanged);
     }
 
     protected override async Task OnInitializedAsync()
     {
-        LoadingService.SetLoading(true);
-
-        await Task.Delay(500);
-        articleList = Service!.GetArticles(Filter);
-
-        LoadingService.SetLoading(false);
+        await AoFiltrar(CancellationToken.None);
     }
 
-    private async Task OnFilter(CancellationToken cToken)
+    private async Task AoAdicionarTagNoFiltro(TagModel tag)
+    {
+        bool isTagFiltered =
+                Filter.Tags
+                .Any(s => s.Equals(tag.Nome, StringComparison.OrdinalIgnoreCase));
+
+        if (!isTagFiltered)
+        {
+            Filter.Tags.Add(tag.Nome);
+        }
+
+        await AoFiltrar(CancellationToken.None);
+    }
+
+    private async Task AoFiltrar(CancellationToken cToken)
     {
         try
         {
-            LoadingService.SetLoading(true);
-            articleList = Enumerable.Empty<ArticleListItemModel>();
+            LoadingService.AlterarEstado(true);
+            listaDeArtigos = Enumerable.Empty<ArticleListItemModel>();
             StateHasChanged();
             await Task.Delay(500);
 
             if (!cToken.IsCancellationRequested)
-                articleList = Service!.GetArticles(Filter);
+                listaDeArtigos = Service!.GetArticles(Filter);
         }
-        catch (Exception) {}
+        catch (Exception) { }
         finally
         {
-            LoadingService.SetLoading(false);
+            LoadingService.AlterarEstado(false);
             StateHasChanged();
         }
     }

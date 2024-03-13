@@ -4,7 +4,7 @@ public partial class SelectedItemList
 {
 
     [Parameter]
-    public ICollection<string> SelectedItems { get; set; }
+    public ICollection<string> ItemsSelecionados { get; set; }
         = new List<string>();
 
     [Parameter]
@@ -12,13 +12,12 @@ public partial class SelectedItemList
         = new List<string>();
 
     [Parameter]
-    public EventCallback<CancellationToken> OnRemoveItemCallback { get; set; }
+    public EventCallback<CancellationToken> AoRemoverItem { get; set; }
 
-    private async Task OnRemoveSelectedItem(MouseEventArgs args, string item)
+    private async Task AoRemoverItemSelecionado(MouseEventArgs args, string item)
     {
-        SelectedItems.Remove(item);
+        ItemsSelecionados.Remove(item);
         DataListOptions.Add(item);
-        await OnRemoveItemCallback.InvokeAsync(CancellationToken.None);
-        StateHasChanged();
+        await AoRemoverItem.InvokeAsync(CancellationToken.None);
     }
 }

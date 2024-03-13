@@ -1,7 +1,9 @@
 namespace MyPersonalBlog.Services;
 
-public class TagService {
-    public IEnumerable<string> GetTags(TagFilterModel filter) {
+public class TagService
+{
+    public IEnumerable<string> ObterTags(TagFilterModel filter)
+    {
         return new List<string> {
             "CSharp",
             "CyberSec",
@@ -9,6 +11,6 @@ public class TagService {
             "Microsoft",
             "Desenvolvimento Web",
             ""
-        }.Where(tag => filter.TagsToExclude.Contains(tag));
+        }.Where(tag => filter.TagsParaRemover.Contains(tag));
     }
 }

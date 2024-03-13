@@ -2,12 +2,13 @@
 
 <article class="item-artigo">
     <nav>
-        <NavLink href="@(Href)" Match="NavLinkMatch.All">
+        <NavLink href="@(Artigo.Url)" Match="NavLinkMatch.All">
             <section class="item-artigo-conteudo">
-                <h1>@Title</h1>
-                <p>@DisplayContent</p>
+                <h1>@(Artigo.Titulo)</h1>
+                <p>@(Artigo.Conteudo)</p>
+                <p>Publicado em: @(Artigo.DataDePublicacao.ToString("dd/MM/yyyy"))</p>
             </section>
         </NavLink>
     </nav>
-    <TagNavigationList Tags="@Tags" />
+    <TagNavigationList Tags="@Artigo.Tags" AoAdicionarTagNoFiltro="AoAdicionarTagNoFiltro" />
 </article>

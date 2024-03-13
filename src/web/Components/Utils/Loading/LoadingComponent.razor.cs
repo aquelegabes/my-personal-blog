@@ -13,6 +13,6 @@ public partial class LoadingComponent
     {
         await base.SetParametersAsync(parameters);
 
-        LoadingService.Notify += () => InvokeAsync(StateHasChanged);
+        LoadingService.Notificar += () => InvokeAsync(StateHasChanged);
     }
 }

@@ -2,6 +2,6 @@ namespace MyPersonalBlog.Models.Filters;
 
 public class TagFilterModel
 {
-    public IEnumerable<string> TagsToExclude { get; set; }
+    public IEnumerable<string> TagsParaRemover { get; set; }
         = Enumerable.Empty<string>();
 }

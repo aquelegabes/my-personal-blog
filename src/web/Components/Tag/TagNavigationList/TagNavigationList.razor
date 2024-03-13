@@ -1,21 +1,21 @@
-@using MyPersonalBlog.Components.Tag.TagItem.TagItemLink
-
 <nav class="item-artigo-tags">
-  @for (int pageIndex = 0; hasNextPage; pageIndex++)
-  {
-    var currentPage = Tags
-    .Skip(pageIndex * MaxTagsPerLine)
-    .Take(MaxTagsPerLine);
+    @for (int pageIndex = 0; temProximaPagina; pageIndex++)
+    {
+        var currentPage = Tags
+        .Skip(pageIndex * MaximoDeTagsPorLinha)
+        .Take(MaximoDeTagsPorLinha);
 
-    hasNextPage = currentPage.Any();
+        temProximaPagina = currentPage.Any();
 
-    if (!hasNextPage) break;
+        if (!temProximaPagina) break;
 
-    <ul class="item-artigo-tags-linha">
-      @foreach (var tag in currentPage)
-      {
-        <TagItemLink Tag="@tag" IsListItem="@true" />
-      }
-    </ul>
-  }
+        <ul class="item-artigo-tags-linha">
+            @foreach (var tag in currentPage)
+            {
+                <li class="tag-item">
+                    <button type="button" class="tag-button" @onclick="() => AoClicarNaTag(tag)">@(tag.Nome)</button>
+                </li>
+            }
+        </ul>
+    }
 </nav>

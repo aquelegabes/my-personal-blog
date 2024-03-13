@@ -4,13 +4,13 @@ public class ChapterModel
 {
     public ChapterModel(string title, string content)
     {
-        this.Title = title;
-        this.Content = content;
+        this.Titulo = title;
+        this.Conteudo = content;
     }
-    public string Title { get; set; } = string.Empty;
-    public string Content { get; set; } = string.Empty;
-    public string[] GetParagraphs()
+    public string Titulo { get; set; } = string.Empty;
+    public string Conteudo { get; set; } = string.Empty;
+    public string[] ObterParagrafos()
     {
-        return Content.Split('\r');
+        return Conteudo.Split('\r');
     }
 }

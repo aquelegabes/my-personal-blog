@@ -1,25 +1,44 @@
 .item-artigo-tags-linha {
-  display: flex;
-  flex-direction: row;
-  align-content: center;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
 }
 
 .item-artigo-tags {
-  display: flex;
-  flex-direction: column;
-  min-width: 570px;
+    display: flex;
+    flex-direction: column;
+    min-width: 570px;
 }
 
 .item-artigo-tags-linha span {
-  border-left: 1px solid var(--cor-destaque);
-  border-bottom: 2px solid var(--cor-destaque);
-  border-radius: 12px;
-  font-size: x-small;
-  text-align: center;
-  margin: 0.3rem;
-  padding: 0 0.5rem;
+    border-left: 1px solid var(--cor-destaque);
+    border-bottom: 2px solid var(--cor-destaque);
+    border-radius: 12px;
+    text-align: center;
+    margin: 0.3rem;
+    padding: 0 0.5rem;
 }
 
 .tag-link {
     display: flex;
 }
+
+.tag-item {
+    border-left: 1px solid var(--cor-destaque);
+    border-bottom: 2px solid var(--cor-destaque);
+    border-radius: 12px;
+    font-size: small;
+    text-align: center;
+    margin: 0.3rem;
+    padding: 0 0.5rem;
+}
+
+.tag-button {
+    border: none;
+    background-color: var(--cor-fundo);
+}
+
+    .tag-button:hover {
+        color: var(--cor-destaque);
+        cursor: pointer;
+    }

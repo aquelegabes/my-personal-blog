@@ -3,14 +3,14 @@ namespace MyPersonalBlog.Components.Input.InputTags;
 public partial class InputTags
 {
     [Parameter]
-    public ICollection<string> SelectedTags { get; set; } =
+    public ICollection<string> TagsSelecionadas { get; set; } =
         new List<string>();
 
     [Parameter]
-    public EventCallback<CancellationToken> OnAddItemCallback { get; set; }
+    public EventCallback<CancellationToken> AoAdicionarItem { get; set; }
 
     [Parameter]
-    public EventCallback<CancellationToken> OnRemoveItemCallback { get; set; }
+    public EventCallback<CancellationToken> AoRemoverItem { get; set; }
 
     private string InputValue { get; set; }
         = string.Empty;
@@ -21,21 +21,21 @@ public partial class InputTags
     private ICollection<string> DataListOptions { get; set; } =
         new List<string>();
 
-    private void OnTextChange(ChangeEventArgs args)
+    private void AoAlterarTexto(ChangeEventArgs args)
     {
-        InputValue = args?.Value?.ToString() ?? string.Empty;
+        InputValue = args?.Value?.ToString().Trim() ?? string.Empty;
     }
 
-    private async Task OnSelectTag(KeyboardEventArgs args)
+    private async Task AoSelecionarTag(KeyboardEventArgs args)
     {
         switch (args.Code)
         {
             case "Comma":
             case "Enter":
-                HandleCancellationToken();
-                HandleTagSelection();
+                TratarCancellationToken();
+                TratarSelecaoDeTag();
 
-                await OnAddItemCallback.InvokeAsync(CancellationTokenSource.Token);
+                await AoAdicionarItem.InvokeAsync(CancellationTokenSource.Token);
 
                 break;
             default: return;
@@ -44,7 +44,7 @@ public partial class InputTags
         StateHasChanged();
     }
 
-    private void HandleCancellationToken()
+    private void TratarCancellationToken()
     {
         try
         {
@@ -63,7 +63,7 @@ public partial class InputTags
         }
     }
 
-    private void HandleTagSelection()
+    private void TratarSelecaoDeTag()
     {
         InputValue = InputValue
                         .Replace(",", "")
@@ -71,12 +71,12 @@ public partial class InputTags
 
         bool inputHasValue = !string.IsNullOrWhiteSpace(InputValue);
         bool isInputDuplicated =
-            SelectedTags
+            TagsSelecionadas
             .Any(s => s.Equals(InputValue, StringComparison.OrdinalIgnoreCase));
 
         if (inputHasValue && !isInputDuplicated)
         {
-            SelectedTags.Add(InputValue);
+            TagsSelecionadas.Add(InputValue);
             DataListOptions.Remove(InputValue);
         }
 
